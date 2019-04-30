@@ -18,7 +18,7 @@ use pocketmine\event\entity\EntityDamageEvent;
 
 class Main extends PluginBase implements Listener {
 
-  public afk = [];
+  public $afk = [];
   
   public function onEnable() {
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
