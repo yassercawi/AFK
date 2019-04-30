@@ -18,7 +18,7 @@ use pocketmine\event\entity\EntityDamageEvent;
 
 class Main extends PluginBase implements Listener {
 
-  public static $afk = [];
+  public afk = [];
   
   public function onEnable() {
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -26,24 +26,22 @@ class Main extends PluginBase implements Listener {
   
   public function onQuit(PlayerQuitEvent $event) {
     $player = $event->getPlayer();
-    $name = $player->getName();
-    $this->afk[] = $name;
-    if(in_array($name, self::$afk)) {
-      unset(self::$afk[array_search($name, self::$afk)]);
+    if(isset($this->afk[$player->getName()])) {
+      unset($this->afk[$player->getName()]);
     }
   }
   
   public function onMove(PlayerMoveEvent $event) {
     $player = $event->getPlayer();
     $name = $player->getName();
-    if(in_array($name, self::$afk)) {
-      unset(self::$afk[array_search($name, self::$afk)]);
+    if(isset($this->afk[$player->getName()])) {
+      unset($this->afk[$player->getName()]);
       $player->setDisplayName($name);
       $player->sendMessage(TF::GREEN . "You are no longer AFK!");
     }
   }
   public function onDamage(EntityDamageEvent $event) {
-    if($event->getEntity() instanceof Player && in_array($name, self::$afk)) {
+    if($event->getEntity() instanceof Player && isset($this->afk[$player->getName()])) {
       $event->setCancelled(true);
     }
   }
@@ -56,12 +54,12 @@ class Main extends PluginBase implements Listener {
         }
         
         $name = $sender->getName();
-        if(in_array($name, self::$afk)) {
-          unset(self::$afk[array_search($name, self::$afk)]);
+        if(isset($this->afk[$player->getName()])) {
+          unset($this->afk[$player->getName()]);
           $player->setDisplayName($name);
           $player->sendMessage(TF::GREEN . "You are no longer AFK!");
         } else {
-          self::$afk = $name;
+          this->afk[] = $name;
           $sender->setDisplayName(TF::YELLOW . "[AFK] " . $name);
           $sender->sendMessage(TF::GREEN . "You are now AFK!");
         }
