@@ -26,7 +26,7 @@ class Main extends PluginBase implements Listener {
   
   public function onQuit(PlayerQuitEvent $event) {
     $player = $event->getPlayer();
-    if(isset($this->afk[$player->getName()])) {
+    if(in_array($this->afk[$player->getName()])) {
       unset($this->afk[$player->getName()]);
     }
   }
@@ -34,14 +34,14 @@ class Main extends PluginBase implements Listener {
   public function onMove(PlayerMoveEvent $event) {
     $player = $event->getPlayer();
     $name = $player->getName();
-    if(isset($this->afk[$player->getName()])) {
+    if(in_array($this->afk[$player->getName()])) {
       unset($this->afk[$player->getName()]);
       $player->setDisplayName($name);
       $player->sendMessage(TF::GREEN . "You are no longer AFK!");
     }
   }
   public function onDamage(EntityDamageEvent $event) {
-    if($event->getEntity() instanceof Player && isset($this->afk[$player->getName()])) {
+    if($event->getEntity() instanceof Player && in_array($this->afk[$player->getName()])) {
       $event->setCancelled(true);
     }
   }
@@ -54,7 +54,7 @@ class Main extends PluginBase implements Listener {
         }
         
         $name = $sender->getName();
-        if(isset($this->afk[$sender->getName()])) {
+        if(in_array($this->afk[$sender->getName()])) {
           unset($this->afk[$sender->getName()]);
           $player->setDisplayName($name);
           $player->sendMessage(TF::GREEN . "You are no longer AFK!");
