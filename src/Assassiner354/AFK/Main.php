@@ -26,8 +26,8 @@ class Main extends PluginBase implements Listener {
   
   public function onQuit(PlayerQuitEvent $event) {
     $player = $event->getPlayer();
-    if(in_array($this->afk[$player->getName()])) {
-      unset($this->afk[$player->getName()]);
+    if(in_array($this->afk[strtolower($player->getName())])) {
+      unset($this->afk[strtolower($player->getName())]);
     }
   }
   
