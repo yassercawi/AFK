@@ -1,0 +1,11 @@
+---
+# CONFIGURATION FILE
+
+# TO-DO: Add Functionality.
+no-chat: false
+no-move: false
+
+messages:
+  no-chat: "14"
+  no move: "14"
+...
