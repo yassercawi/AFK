@@ -21,6 +21,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat as TF;
+use pocketmine\utils\Config;
 
 //Events
 use pocketmine\event\Listener;
@@ -34,6 +35,10 @@ class Main extends PluginBase implements Listener {
   
   public function onEnable() {
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    @mkdir($this->getDataFolder());
+    if(is_file($file = $this->getDataFolder() . DIRECTORY_SEPARATOR . "config.yml")) {
+        $config = new Config($file, Config::YAML)
+    }
   }
   
   public function onQuit(PlayerQuitEvent $event) {
