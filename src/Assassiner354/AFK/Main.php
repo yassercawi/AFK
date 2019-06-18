@@ -2,6 +2,18 @@
 
 namespace Assassiner354\AFK;
 
+/*                 AFK Copyright (C) 2019 Assassiner354
+               This program comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+            under certain conditions; type `show c' for details.
+
+    You should also get your employer (if you work as a programmer) or school,
+    if any, to sign a "copyright disclaimer" for the program, if necessary.
+    For more information on this, and how to apply and follow the GNU GPL, see
+                    <https://www.gnu.org/licenses/>.
+*/
+
+
 //Important
 use pocketmine\Player;
 use pocketmine\Server;
