@@ -36,9 +36,6 @@ class Main extends PluginBase implements Listener {
   public function onEnable() {
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     @mkdir($this->getDataFolder());
-    if(is_file($file = $this->getDataFolder() . DIRECTORY_SEPARATOR . "config.yml")) {
-        $config = new Config($file, Config::YAML);
-    }
   }
   
   public function onQuit(PlayerQuitEvent $event) {
