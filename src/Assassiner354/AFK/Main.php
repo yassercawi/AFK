@@ -62,6 +62,7 @@ class Main extends PluginBase implements Listener {
     if(in_array($this->afk[strtolower($player->getName())])) {
       $event->setCancelled();
       $player->sendMessage(TF::RED . "You can't chat while AFK!");
+    }
   }
 
   public function onDamage(EntityDamageEvent $event) {
