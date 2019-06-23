@@ -27,6 +27,7 @@ use pocketmine\utils\Config;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 
 class Main extends PluginBase implements Listener {
@@ -54,11 +55,22 @@ class Main extends PluginBase implements Listener {
       $player->sendMessage(TF::GREEN . "You are no longer AFK!");
     }
   }
+  
+  public function onChat(PlayerChatEvent $event) {
+    $player = $event->getPlayer();
+    $name = $player->getName();
+    if(in_array($this->afk[strtolower($player->getName())])) {
+      unset($this->afk[strtolower($player->getName())]);
+      $event->setCancelled();
+      $player->sendMessage(TF::RED . "You can't chat while AFK!");
+  }
+
   public function onDamage(EntityDamageEvent $event) {
     if($event->getEntity() instanceof Player && in_array($this->afk[strtolower($player->getName())])) {
       $event->setCancelled(true);
     }
   }
+
   public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
     switch($cmd->getName()) {
       case "afk":
