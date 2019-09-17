@@ -9,6 +9,6 @@
 
 # Social
 
-YOUTUBE: [Check it Here](youtube.com/c/Assassiner354)
+YOUTUBE: [Check it Here](youtube.com/c/TheRealKizu)
 
-DISCORD: A354-PH#3267
+DISCORD: TheRealKizu#3267
