@@ -1,6 +1,6 @@
 ---
 # Main Configuration File
-# AFK by Assassiner354
+# AFK by TheRealKizu
 #     ___  ______  _   __
 #    / _ \ |  ___|| | / /
 #   / /_\ \| |_   | |/ /
@@ -9,7 +9,6 @@
 #   \_| |_/\_|    \_| \_/
 
 #Disables movement while afk
-# NOTE:DEPRECATED FEATURE! DOESNT WORK ANYMORE! WILL BE REMOVED IN THE FUTURE
 no-move: true
 
 #Disables chatting while afk

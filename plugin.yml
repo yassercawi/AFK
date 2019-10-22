@@ -1,8 +1,8 @@
 name: AFK
-main: Assassiner354\AFK\Main
+main: TheRealKizu\AFK\Main
 api: [3.0.0]
 version: 1.0.0
-author: Assassiner354
+author: TheRealKizu
 description: Simple /afk plugin for PocketMine
 
 commands:
