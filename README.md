@@ -3,9 +3,15 @@
 
 # Installation
 
-- To install the plugin download the .phar.
+- Install the latest version of the plugin from [Poggit](http://poggit.pmmp.io)
 
-- Now place it in your plugins folder and restart the server.
+- Paste it on your `plugins` folder then start/restart the server
+
+# Features
+
+- Customizable `NoMove` and `NoChat` option!
+
+- That's it lmao
 
 # Social
 
